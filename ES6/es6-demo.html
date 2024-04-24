@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <script>
+        // class Person {
+        //     #test;
+        //     constructor(name,age){
+        //         this.name = name
+        //         this.age = age
+        //         this.#test = 100;
+        //         console.log("object created")
+        //         console.log(`name::`,this.name);
+        //         console.log(`age::`,this.age)
+        //     }
+
+        //     #stuffPrivateMethod(){
+        //         console.log("here is private method-->");
+        //         return this.#test
+        //     }
+
+        //     getConcatValue(){
+        //         return this.conCat();
+        //     }
+
+        //     conCat(){
+        //         console.log("public method here")
+        //         return this.name + " with age -->" + this.age;
+        //     }
+
+        //     preMethod(){
+        //         console.log("previledged method to expose private stuff")
+        //         return this.#stuffPrivateMethod()
+        //     }
+
+        //     static myStatic(){
+        //         return "this is static function"
+        //     }
+        // }
+        // Person.prototype.refTest = 200;
+        // Person.prototype.sayHello = function(){
+        //     console.log("call prototype here")
+        //     return this.refTest;
+        // }
+
+        // class Student extends Person{
+        //     testChildRef(){
+        //         console.log(" this is child method")
+        //         return "this is child component method"
+        //     }
+        // }
+        // // let p = new Person("ES6",25);
+        // let s = new Student("John",22);
+        // console.log("call the public method --> "+s.getConcatValue())
+        // console.log("calling private method --> "+s.preMethod())
+        // console.log("calling static one --> "+Person.myStatic())
+        // console.log("calling prototype here --> "+s.sayHello())
+
+
+        class BasicCal{
+            constructor(...params){
+                console.log("PARAMS::",params)
+                this.a = params[0];
+                this.b = params[1];
+            }
+
+            static myStatic = () => {
+                return "this is basic calculator"
+            }
+
+            add = () => {
+                return this.a + this.b
+            }
+
+            sub = () => {
+                return this.a - this.b
+            }
+
+            mul = () => {
+                return this.a * this.b
+            }
+
+            div = () => {
+                return this.a/this.b
+            }
+        }
+        BasicCal.prototype.sqrt = function(){
+            return Math.sqrt(this.a)
+        }
+        let calc = new BasicCal(8,4);
+        console.log(BasicCal.myStatic())
+        console.log("ADD -> ",calc.add())
+        console.log("SUB -> ",calc.sub())
+        console.log("MUL -> ",calc.mul())
+        console.log("DIV -> ",calc.div())
+        console.log("SQRT -> ",calc.sqrt())
+
+        class SciCal extends BasicCal{
+            static sciStatic = () => {
+                return "this is scientific calculator"
+            }
+            log = () => {
+                return Math.log(this.a)
+            }
+
+            sin = () => {
+                return Math.sin(this.a)
+            }
+
+            cos = () => {
+                return Math.cos(this.a)
+            }
+
+            tan = () => {
+                return Math.tan(this.a)
+            }
+
+            exp(){
+                return Math.exp(this.a)
+            }
+        }
+
+        let s = new SciCal(12,4)
+        console.log(SciCal.sciStatic())
+        console.log("ADD -> ",s.add())
+        console.log("SUB -> ",s.sub())
+        console.log("MUL -> ",s.mul())
+        console.log("DIV -> ",s.div())
+        console.log("SQRT -> ",s.sqrt())
+        console.log("LOG -> ",s.log())
+        console.log("SIN -> ",s.sin())
+        console.log("COS -> ",s.cos())
+        console.log("TAN -> ",s.tan())
+        console.log("EXP -> ",s.exp())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
